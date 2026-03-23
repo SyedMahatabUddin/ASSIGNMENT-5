@@ -10,12 +10,12 @@ document.getElementById('btn-sign-in').addEventListener('click', function (param
           if (userName=='admin' && userPassword=='admin123') {
                    
 
-                   window.location.assign("home.html")
+                   window.location.href = "home.html";
           }
           else if(userName != 'admin'){
-                    alert('user not correct (admin)');
+                    alert('user not correct ((Use: admin)');
           }
           else{
-                    alert('password not match (admin123)')
+                    alert('password not match ((Use: admin123)');
           }
 })
