@@ -7,10 +7,10 @@ document.getElementById('btn-sign-in').addEventListener('click', function (param
           const passwordInput = document.getElementById('password-Input');
           const userPassword = passwordInput.value;
 /* user name and password check */
-          if (userName=='admin' & userPassword=='admin123') {
+          if (userName=='admin' && userPassword=='admin123') {
                    
 
-                   window.location.assign("./home.html")
+                   window.location.assign("home.html")
           }
           else if(userName != 'admin'){
                     alert('user not correct (admin)');
