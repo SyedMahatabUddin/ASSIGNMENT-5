@@ -10,7 +10,7 @@ document.getElementById('btn-sign-in').addEventListener('click', function (param
           if (userName=='admin' & userPassword=='admin123') {
                    
 
-                   window.location.assign("/home.html")
+                   window.location.assign("./home.html")
           }
           else if(userName != 'admin'){
                     alert('user not correct (admin)');
@@ -19,5 +19,3 @@ document.getElementById('btn-sign-in').addEventListener('click', function (param
                     alert('password not match (admin123)')
           }
 })
-
-fetch()
