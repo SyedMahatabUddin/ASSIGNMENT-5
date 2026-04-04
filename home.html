@@ -34,20 +34,20 @@
 
    </header>
    <!-- troggle section -->
-   <div class="my-4 lg:mx-auto mx-4  max-w-[1260px] px-4 py-4 space-x-2 shadow-[0_0_10px_rgba(0,0,0,0.1)] bg-white rounded-xl ">
+   <div class="my-4 lg:mx-auto mx-4  lg:max-w-[1024px] xl:max-w-[1260px] 2xl:max-w-[1400px] px-4 py-4 space-x-2 shadow-[0_0_10px_rgba(0,0,0,0.1)] bg-white rounded-xl ">
       <button onclick="troggleFunc('all')" id="all-btn" class="bg-white border-[2px] text-[#64748B] border-[#E4E4E7] rounded py-1 hover:bg-[#4A00FF] hover:border-[#4A00FF] hover:text-white px-7 cursor-pointer">All</button>
       <button onclick="troggleFunc('open')" id="open-btn" class="border-[2px] border-[#E4E4E7] rounded py-1 hover:bg-[#4A00FF] hover:border-[#4A00FF] hover:text-white text-[#64748B] px-7 cursor-pointer">Open</button>
       <button onclick="troggleFunc('closed')" id="closed-btn" class="bg-white border-[2px] text-[#64748B] border-[#E4E4E7] rounded py-1 hover:bg-[#4A00FF] hover:border-[#4A00FF] hover:text-white px-7 cursor-pointer">Closed</button>
    </div>
 
    <!-- status seciton -->
-   <section  class=" mt-4 lg:mx-auto mx-4 p-4 rounded-t-xl shadow-[0_0_10px_rgba(0,0,0,0.1)] max-w-[1260px] flex justify-between bg-white">
+   <section  class=" mt-4 lg:mx-auto mx-4 p-4 rounded-t-xl shadow-[0_0_10px_rgba(0,0,0,0.1)] lg:max-w-[1024px] xl:max-w-[1260px] 2xl:max-w-[1400px] flex justify-between bg-white">
       <div class="flex items-center gap-2">
          <div class="bg-purple-300 rounded-full size-[40px] flex justify-center items-center">
             <img class="size-[28px]" src="./media/Aperture.png" alt="">
          </div>
          <div>
-            <p class="text-[20px] font-semibold text-[#1F2937]">50 Issues</p>
+            <p id="issue-status" class="text-[20px] font-semibold text-[#1F2937]">710 Issues</p>
             <p class="text-[14px] text-[#64748B]">Track and manage your project issues</p>
          </div>
       </div>
@@ -63,350 +63,20 @@
       </div>
    </section>
    <!-- all section -->
-  <main class="">
-   <section class="grid grid-cols-1 rounded-b-xl md:grid-cols-3 gap-8 lg:mx-auto mx-4 px-4 py-8 shadow-[0_0_10px_rgba(0,0,0,0.1)] max-w-[1260px] bg-[#FBFBFB]">
+  <main  class="">
+   <section id="all-section" class="grid rounded-b-xl sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-8 lg:mx-auto mx-4 px-4 py-8 shadow-[0_0_10px_rgba(0,0,0,0.1)] lg:max-w-[1024px] xl:max-w-[1260px] 2xl:max-w-[1400px] bg-[#FBFBFB]">
       <!-- card -->
-   <div>
-      <input type="checkbox" id="issue_modal_1" class="hidden peer">
-      
-      <label for="issue_modal_1" class="block cursor-pointer">
-            <div class="space-y-3 rounded-xl border-t-4 border-green-500 bg-white shadow-sm">
-               <div class=" p-4 space-y-4">
-                  <div class=" flex justify-between items-center">
-                     <img src="./media/Open-Status.png" alt="">
-      
-                     <img class="hidden" src="./media/Closed-Status.png" alt="">
-                     <p class="bg-red-100 px-6 py-1 rounded-full text-[12px] font-medium text-[#EF4444] uppercase ">high</p>
-                     <p class="bg-[#FFF6D1] px-6 py-1 rounded-full text-[12px] font-medium text-[#F59E0B] uppercase hidden">Medium</p>
-                     <p class="bg-[#EEEFF2] px-6 py-1 rounded-full text-[12px] font-medium text-[#9CA3AF] uppercase hidden">low</p>
-                  </div>
-                  <div>
-                     <p class="text-[14px] font-semibold text-[#000000] mb-1">Fix navigation menu on mobile devices</p>
-                     <p class="text-[12px] text-[#64748B]">The navigation menu doesn't collapse properly on mobile devices...</p>
-                  </div>
-                  <div class="flex gap-3">
-                     <div class="flex items-center px-4 py-1 border-red-300 border-[2px] rounded-full bg-red-100 gap-1">
-                        <img class="size-[12px]" src="./media/BugDroid.svg" alt="">
-                        <p class="text-[#EF4444] text-[12px] uppercase">Bug</p>
-                     </div>
-                     <div  class="flex items-center px-4 py-1 border-orange-300 border-[2px] rounded-full bg-orange-100 gap-1">
-                        <img class="size-[12px]" src="./media/helpVector.svg" alt="">
-                        <p class="text-[#D97706] text-[12px] uppercase">help wanted</p>
-                     </div>
-                  </div>
-               </div>
-               <hr class="border-gray-200 border-1">
-               <div class="px-4 space-y-2 pb-4">
-                  <p class="text-[12px] text-[#64748B]">#1by john_doe</p>
-                  <p class="text-[12px] text-[#64748B]">1/15/2024</p>
-               </div>
-            </div>
-      </label>
-            <!-- modal -->
-          <div class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 
-                           invisible opacity-0 transition-all duration-300 
-                           peer-checked:visible peer-checked:opacity-100">
-               
-                   <div class="bg-white rounded-3xl shadow-2xl w-full max-w-2xl p-8 space-y-6 transform scale-90 transition-all duration-300 peer-checked:scale-100">
-               
-                       <h2 class="text-3xl font-bold text-slate-800">Issue Details</h2>
-               
-                       <div class="flex items-center gap-3 text-sm text-slate-500">
-                           <span class="bg-emerald-500 text-white px-3 py-1 rounded-full">Opened</span>
-                           <span>• Opened by Fahim Ahmed</span> 
-                           <p class="text-[12px] text-[#64748B]">• 1/15/2024</p>
-                       </div>
-                           <div class="flex gap-3">
-                              <div class="flex items-center px-4 py-1 border-red-300 border-[2px] rounded-full bg-red-100 gap-1">
-                                 <img class="size-[12px]" src="./media/BugDroid.svg" alt="">
-                                 <p class="text-[#EF4444] text-[12px] uppercase">Bug</p>
-                              </div>
-                              <div  class="flex items-center px-4 py-1 border-orange-300 border-[2px] rounded-full bg-orange-100 gap-1">
-                                 <img class="size-[12px]" src="./media/helpVector.svg" alt="">
-                                 <p class="text-[#D97706] text-[12px] uppercase">help wanted</p>
-                              </div>
-                           </div>
-                       <p class="text-slate-600 text-lg">
-                           The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.
-                       </p>
-               
-                       <div class="bg-slate-50 rounded-2xl p-6 grid-cols-2 grid  items-center">
-                           <div >
-                               <p class="text-slate-400 text-sm">Assignee:</p>
-                               <p class="text-slate-800 font-bold text-xl">Fahim Ahmed</p>
-                           </div>
-                           <div class="text-left space-y-1">
-                               <p class="text-slate-400 text-sm">Priority:</p>
-                               <span class="bg-red-500 text-white text-[12px] px-4 py-1 rounded-full font-medium">HIGH</span>
-                           </div>
-                       </div>
-               
-                       <div class="flex justify-end">
-                           <label for="issue_modal_1" class="cursor-pointer bg-[#4A00FF] text-white px-10 py-3 rounded-xl font-bold hover:bg-[#3b00cc] transition-all">
-                               Close
-                           </label>
-                       </div>
-                   </div>
-          </div>
-   </div>
-   <div>
-      <input type="checkbox" id="issue_modal_1" class="hidden peer">
-      
-      <label for="issue_modal_1" class="block cursor-pointer">
-            <div class="space-y-3 rounded-xl border-t-4 border-green-500 bg-white shadow-sm">
-               <div class=" p-4 space-y-4">
-                  <div class=" flex justify-between items-center">
-                     <img src="./media/Open-Status.png" alt="">
-      
-                     <img class="hidden" src="./media/Closed-Status.png" alt="">
-                     <p class="bg-red-100 px-6 py-1 rounded-full text-[12px] font-medium text-[#EF4444] uppercase ">high</p>
-                     <p class="bg-[#FFF6D1] px-6 py-1 rounded-full text-[12px] font-medium text-[#F59E0B] uppercase hidden">Medium</p>
-                     <p class="bg-[#EEEFF2] px-6 py-1 rounded-full text-[12px] font-medium text-[#9CA3AF] uppercase hidden">low</p>
-                  </div>
-                  <div>
-                     <p class="text-[14px] font-semibold text-[#000000] mb-1">Fix navigation menu on mobile devices</p>
-                     <p class="text-[12px] text-[#64748B]">The navigation menu doesn't collapse properly on mobile devices...</p>
-                  </div>
-                  <div class="flex gap-3">
-                     <div class="flex items-center px-4 py-1 border-red-300 border-[2px] rounded-full bg-red-100 gap-1">
-                        <img class="size-[12px]" src="./media/BugDroid.svg" alt="">
-                        <p class="text-[#EF4444] text-[12px] uppercase">Bug</p>
-                     </div>
-                     <div  class="flex items-center px-4 py-1 border-orange-300 border-[2px] rounded-full bg-orange-100 gap-1">
-                        <img class="size-[12px]" src="./media/helpVector.svg" alt="">
-                        <p class="text-[#D97706] text-[12px] uppercase">help wanted</p>
-                     </div>
-                  </div>
-               </div>
-               <hr class="border-gray-200 border-1">
-               <div class="px-4 space-y-2 pb-4">
-                  <p class="text-[12px] text-[#64748B]">#1by john_doe</p>
-                  <p class="text-[12px] text-[#64748B]">1/15/2024</p>
-               </div>
-            </div>
-      </label>
-            <!-- modal -->
-          <div class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 
-                           invisible opacity-0 transition-all duration-300 
-                           peer-checked:visible peer-checked:opacity-100">
-               
-                   <div class="bg-white rounded-3xl shadow-2xl w-full max-w-2xl p-8 space-y-6 transform scale-90 transition-all duration-300 peer-checked:scale-100">
-               
-                       <h2 class="text-3xl font-bold text-slate-800">Issue Details</h2>
-               
-                       <div class="flex items-center gap-3 text-sm text-slate-500">
-                           <span class="bg-emerald-500 text-white px-3 py-1 rounded-full">Opened</span>
-                           <span>• Opened by Fahim Ahmed</span> 
-                           <p class="text-[12px] text-[#64748B]">• 1/15/2024</p>
-                       </div>
-                           <div class="flex gap-3">
-                              <div class="flex items-center px-4 py-1 border-red-300 border-[2px] rounded-full bg-red-100 gap-1">
-                                 <img class="size-[12px]" src="./media/BugDroid.svg" alt="">
-                                 <p class="text-[#EF4444] text-[12px] uppercase">Bug</p>
-                              </div>
-                              <div  class="flex items-center px-4 py-1 border-orange-300 border-[2px] rounded-full bg-orange-100 gap-1">
-                                 <img class="size-[12px]" src="./media/helpVector.svg" alt="">
-                                 <p class="text-[#D97706] text-[12px] uppercase">help wanted</p>
-                              </div>
-                           </div>
-                       <p class="text-slate-600 text-lg">
-                           The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.
-                       </p>
-               
-                       <div class="bg-slate-50 rounded-2xl p-6 grid-cols-2 grid  items-center">
-                           <div >
-                               <p class="text-slate-400 text-sm">Assignee:</p>
-                               <p class="text-slate-800 font-bold text-xl">Fahim Ahmed</p>
-                           </div>
-                           <div class="text-left space-y-1">
-                               <p class="text-slate-400 text-sm">Priority:</p>
-                               <span class="bg-red-500 text-white text-[12px] px-4 py-1 rounded-full font-medium">HIGH</span>
-                           </div>
-                       </div>
-               
-                       <div class="flex justify-end">
-                           <label for="issue_modal_1" class="cursor-pointer bg-[#4A00FF] text-white px-10 py-3 rounded-xl font-bold hover:bg-[#3b00cc] transition-all">
-                               Close
-                           </label>
-                       </div>
-                   </div>
-          </div>
-   </div>
-   <div>
-      <input type="checkbox" id="issue_modal_1" class="hidden peer">
-      
-      <label for="issue_modal_1" class="block cursor-pointer">
-            <div class="space-y-3 rounded-xl border-t-4 border-green-500 bg-white shadow-sm">
-               <div class=" p-4 space-y-4">
-                  <div class=" flex justify-between items-center">
-                     <img src="./media/Open-Status.png" alt="">
-      
-                     <img class="hidden" src="./media/Closed-Status.png" alt="">
-                     <p class="bg-red-100 px-6 py-1 rounded-full text-[12px] font-medium text-[#EF4444] uppercase ">high</p>
-                     <p class="bg-[#FFF6D1] px-6 py-1 rounded-full text-[12px] font-medium text-[#F59E0B] uppercase hidden">Medium</p>
-                     <p class="bg-[#EEEFF2] px-6 py-1 rounded-full text-[12px] font-medium text-[#9CA3AF] uppercase hidden">low</p>
-                  </div>
-                  <div>
-                     <p class="text-[14px] font-semibold text-[#000000] mb-1">Fix navigation menu on mobile devices</p>
-                     <p class="text-[12px] text-[#64748B]">The navigation menu doesn't collapse properly on mobile devices...</p>
-                  </div>
-                  <div class="flex gap-3">
-                     <div class="flex items-center px-4 py-1 border-red-300 border-[2px] rounded-full bg-red-100 gap-1">
-                        <img class="size-[12px]" src="./media/BugDroid.svg" alt="">
-                        <p class="text-[#EF4444] text-[12px] uppercase">Bug</p>
-                     </div>
-                     <div  class="flex items-center px-4 py-1 border-orange-300 border-[2px] rounded-full bg-orange-100 gap-1">
-                        <img class="size-[12px]" src="./media/helpVector.svg" alt="">
-                        <p class="text-[#D97706] text-[12px] uppercase">help wanted</p>
-                     </div>
-                  </div>
-               </div>
-               <hr class="border-gray-200 border-1">
-               <div class="px-4 space-y-2 pb-4">
-                  <p class="text-[12px] text-[#64748B]">#1by john_doe</p>
-                  <p class="text-[12px] text-[#64748B]">1/15/2024</p>
-               </div>
-            </div>
-      </label>
-            <!-- modal -->
-          <div class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 
-                           invisible opacity-0 transition-all duration-300 
-                           peer-checked:visible peer-checked:opacity-100">
-               
-                   <div class="bg-white rounded-3xl shadow-2xl w-full max-w-2xl p-8 space-y-6 transform scale-90 transition-all duration-300 peer-checked:scale-100">
-               
-                       <h2 class="text-3xl font-bold text-slate-800">Issue Details</h2>
-               
-                       <div class="flex items-center gap-3 text-sm text-slate-500">
-                           <span class="bg-emerald-500 text-white px-3 py-1 rounded-full">Opened</span>
-                           <span>• Opened by Fahim Ahmed</span> 
-                           <p class="text-[12px] text-[#64748B]">• 1/15/2024</p>
-                       </div>
-                           <div class="flex gap-3">
-                              <div class="flex items-center px-4 py-1 border-red-300 border-[2px] rounded-full bg-red-100 gap-1">
-                                 <img class="size-[12px]" src="./media/BugDroid.svg" alt="">
-                                 <p class="text-[#EF4444] text-[12px] uppercase">Bug</p>
-                              </div>
-                              <div  class="flex items-center px-4 py-1 border-orange-300 border-[2px] rounded-full bg-orange-100 gap-1">
-                                 <img class="size-[12px]" src="./media/helpVector.svg" alt="">
-                                 <p class="text-[#D97706] text-[12px] uppercase">help wanted</p>
-                              </div>
-                           </div>
-                       <p class="text-slate-600 text-lg">
-                           The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.
-                       </p>
-               
-                       <div class="bg-slate-50 rounded-2xl p-6 grid-cols-2 grid  items-center">
-                           <div >
-                               <p class="text-slate-400 text-sm">Assignee:</p>
-                               <p class="text-slate-800 font-bold text-xl">Fahim Ahmed</p>
-                           </div>
-                           <div class="text-left space-y-1">
-                               <p class="text-slate-400 text-sm">Priority:</p>
-                               <span class="bg-red-500 text-white text-[12px] px-4 py-1 rounded-full font-medium">HIGH</span>
-                           </div>
-                       </div>
-               
-                       <div class="flex justify-end">
-                           <label for="issue_modal_1" class="cursor-pointer bg-[#4A00FF] text-white px-10 py-3 rounded-xl font-bold hover:bg-[#3b00cc] transition-all">
-                               Close
-                           </label>
-                       </div>
-                   </div>
-          </div>
-   </div>
-   <div>
-      <input type="checkbox" id="issue_modal_1" class="hidden peer">
-      
-      <label for="issue_modal_1" class="block cursor-pointer">
-            <div class="space-y-3 rounded-xl border-t-4 border-green-500 bg-white shadow-sm">
-               <div class=" p-4 space-y-4">
-                  <div class=" flex justify-between items-center">
-                     <img src="./media/Open-Status.png" alt="">
-      
-                     <img class="hidden" src="./media/Closed-Status.png" alt="">
-                     <p class="bg-red-100 px-6 py-1 rounded-full text-[12px] font-medium text-[#EF4444] uppercase ">high</p>
-                     <p class="bg-[#FFF6D1] px-6 py-1 rounded-full text-[12px] font-medium text-[#F59E0B] uppercase hidden">Medium</p>
-                     <p class="bg-[#EEEFF2] px-6 py-1 rounded-full text-[12px] font-medium text-[#9CA3AF] uppercase hidden">low</p>
-                  </div>
-                  <div>
-                     <p class="text-[14px] font-semibold text-[#000000] mb-1">Fix navigation menu on mobile devices</p>
-                     <p class="text-[12px] text-[#64748B]">The navigation menu doesn't collapse properly on mobile devices...</p>
-                  </div>
-                  <div class="flex gap-3">
-                     <div class="flex items-center px-4 py-1 border-red-300 border-[2px] rounded-full bg-red-100 gap-1">
-                        <img class="size-[12px]" src="./media/BugDroid.svg" alt="">
-                        <p class="text-[#EF4444] text-[12px] uppercase">Bug</p>
-                     </div>
-                     <div  class="flex items-center px-4 py-1 border-orange-300 border-[2px] rounded-full bg-orange-100 gap-1">
-                        <img class="size-[12px]" src="./media/helpVector.svg" alt="">
-                        <p class="text-[#D97706] text-[12px] uppercase">help wanted</p>
-                     </div>
-                  </div>
-               </div>
-               <hr class="border-gray-200 border-1">
-               <div class="px-4 space-y-2 pb-4">
-                  <p class="text-[12px] text-[#64748B]">#1by john_doe</p>
-                  <p class="text-[12px] text-[#64748B]">1/15/2024</p>
-               </div>
-            </div>
-      </label>
-            <!-- modal -->
-          <div class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 
-                           invisible opacity-0 transition-all duration-300 
-                           peer-checked:visible peer-checked:opacity-100">
-               
-                   <div class="bg-white rounded-3xl shadow-2xl w-full max-w-2xl p-8 space-y-6 transform scale-90 transition-all duration-300 peer-checked:scale-100">
-               
-                       <h2 class="text-3xl font-bold text-slate-800">Issue Details</h2>
-               
-                       <div class="flex items-center gap-3 text-sm text-slate-500">
-                           <span class="bg-emerald-500 text-white px-3 py-1 rounded-full">Opened</span>
-                           <span>• Opened by Fahim Ahmed</span> 
-                           <p class="text-[12px] text-[#64748B]">• 1/15/2024</p>
-                       </div>
-                           <div class="flex gap-3">
-                              <div class="flex items-center px-4 py-1 border-red-300 border-[2px] rounded-full bg-red-100 gap-1">
-                                 <img class="size-[12px]" src="./media/BugDroid.svg" alt="">
-                                 <p class="text-[#EF4444] text-[12px] uppercase">Bug</p>
-                              </div>
-                              <div  class="flex items-center px-4 py-1 border-orange-300 border-[2px] rounded-full bg-orange-100 gap-1">
-                                 <img class="size-[12px]" src="./media/helpVector.svg" alt="">
-                                 <p class="text-[#D97706] text-[12px] uppercase">help wanted</p>
-                              </div>
-                           </div>
-                       <p class="text-slate-600 text-lg">
-                           The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.
-                       </p>
-               
-                       <div class="bg-slate-50 rounded-2xl p-6 grid-cols-2 grid  items-center">
-                           <div >
-                               <p class="text-slate-400 text-sm">Assignee:</p>
-                               <p class="text-slate-800 font-bold text-xl">Fahim Ahmed</p>
-                           </div>
-                           <div class="text-left space-y-1">
-                               <p class="text-slate-400 text-sm">Priority:</p>
-                               <span class="bg-red-500 text-white text-[12px] px-4 py-1 rounded-full font-medium">HIGH</span>
-                           </div>
-                       </div>
-               
-                       <div class="flex justify-end">
-                           <label for="issue_modal_1" class="cursor-pointer bg-[#4A00FF] text-white px-10 py-3 rounded-xl font-bold hover:bg-[#3b00cc] transition-all">
-                               Close
-                           </label>
-                       </div>
-                   </div>
-          </div>
-   </div>
+
+
    </section>
   </main>
    <!-- Open section  -->
    <main class="hidden">
-       <section class="grid grid-cols-1 rounded-b-xl md:grid-cols-3 gap-8 lg:mx-auto mx-4 px-4 py-8 shadow-[0_0_10px_rgba(0,0,0,0.1)] max-w-[1260px] bg-[#FBFBFB]"></section>
+       <section class="grid grid-cols-1 rounded-b-xl md:grid-cols-3 lg:grid-cols-4  gap-8 lg:mx-auto mx-4 px-4 py-8 shadow-[0_0_10px_rgba(0,0,0,0.1)] lg:max-w-[1024px] xl:max-w-[1260px] 2xl:max-w-[1400px] bg-[#FBFBFB]"></section>
    </main>
    <!-- Closed section  -->
    <main class="hidden">
-        <section class="grid grid-cols-1 rounded-b-xl md:grid-cols-3 gap-8 lg:mx-auto mx-4 px-4 py-8 shadow-[0_0_10px_rgba(0,0,0,0.1)] max-w-[1260px] bg-[#FBFBFB]"></section>
+        <section class="grid grid-cols-1 rounded-b-xl md:grid-cols-3 lg:grid-cols-4  gap-8 lg:mx-auto mx-4 px-4 py-8 shadow-[0_0_10px_rgba(0,0,0,0.1)] lg:max-w-[1024px] xl:max-w-[1260px] 2xl:max-w-[1400px] bg-[#FBFBFB]"></section>
    </main>
 
 
