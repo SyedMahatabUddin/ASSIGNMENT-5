@@ -21,7 +21,7 @@
 
 </head>
 
-<body class="bg-[#F8FAFC] min-h-screen">
+<body class="bg-[#F8FAFC] min-h-screen pb-8">
    <header class="flex justify-between px-2 md:px-20 py-4 border-gray-300 border-b">
       <div class="flex items-center gap-1">
          <img class="size-[30px] sm:size-[36px] " src="./media/github-logo.png" alt="">
@@ -36,9 +36,18 @@
    <!-- troggle section -->
    <div class="my-4 lg:mx-auto mx-4  lg:max-w-[1024px] xl:max-w-[1260px] 2xl:max-w-[1400px] px-4 py-4 space-x-2 shadow-[0_0_10px_rgba(0,0,0,0.1)] bg-white rounded-xl ">
       <button onclick="troggleFunc('all')" id="all-btn" class="bg-white border-[2px] text-[#64748B] border-[#E4E4E7] rounded py-1 hover:bg-[#4A00FF] hover:border-[#4A00FF] hover:text-white px-7 cursor-pointer">All</button>
+      
+
       <button onclick="troggleFunc('open')" id="open-btn" class="border-[2px] border-[#E4E4E7] rounded py-1 hover:bg-[#4A00FF] hover:border-[#4A00FF] hover:text-white text-[#64748B] px-7 cursor-pointer">Open</button>
+
+
       <button onclick="troggleFunc('closed')" id="closed-btn" class="bg-white border-[2px] text-[#64748B] border-[#E4E4E7] rounded py-1 hover:bg-[#4A00FF] hover:border-[#4A00FF] hover:text-white px-7 cursor-pointer">Closed</button>
    </div>
+
+
+
+
+
 
    <!-- status seciton -->
    <section  class=" mt-4 lg:mx-auto mx-4 p-4 rounded-t-xl shadow-[0_0_10px_rgba(0,0,0,0.1)] lg:max-w-[1024px] xl:max-w-[1260px] 2xl:max-w-[1400px] flex justify-between bg-white">
@@ -47,7 +56,7 @@
             <img class="size-[28px]" src="./media/Aperture.png" alt="">
          </div>
          <div>
-            <p id="issue-status" class="text-[20px] font-semibold text-[#1F2937]">710 Issues</p>
+            <p id="issue-status" class="text-[20px] font-semibold text-[#1F2937]">  Issue</p>
             <p class="text-[14px] text-[#64748B]">Track and manage your project issues</p>
          </div>
       </div>
@@ -64,25 +73,24 @@
    </section>
    <!-- all section -->
   <main  class="">
+
+<!-- loading spinner -->
+
+<div id="spinner" class="hidden text-center my-10 py-8 ">
+      <span class="loading loading-spinner text-neutral w-15"></span>
+   </div>
+
+   
    <section id="all-section" class="grid rounded-b-xl sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-8 lg:mx-auto mx-4 px-4 py-8 shadow-[0_0_10px_rgba(0,0,0,0.1)] lg:max-w-[1024px] xl:max-w-[1260px] 2xl:max-w-[1400px] bg-[#FBFBFB]">
       <!-- card -->
 
 
    </section>
   </main>
-   <!-- Open section  -->
-   <main class="hidden">
-       <section class="grid grid-cols-1 rounded-b-xl md:grid-cols-3 lg:grid-cols-4  gap-8 lg:mx-auto mx-4 px-4 py-8 shadow-[0_0_10px_rgba(0,0,0,0.1)] lg:max-w-[1024px] xl:max-w-[1260px] 2xl:max-w-[1400px] bg-[#FBFBFB]"></section>
-   </main>
-   <!-- Closed section  -->
-   <main class="hidden">
-        <section class="grid grid-cols-1 rounded-b-xl md:grid-cols-3 lg:grid-cols-4  gap-8 lg:mx-auto mx-4 px-4 py-8 shadow-[0_0_10px_rgba(0,0,0,0.1)] lg:max-w-[1024px] xl:max-w-[1260px] 2xl:max-w-[1400px] bg-[#FBFBFB]"></section>
-   </main>
 
 
 <script src="./home.js"></script>
-   <br><br>
-   <br>
+
 
 </body>
 
