@@ -49,12 +49,14 @@ const fetchFunc = () => {
             const allCard = document.getElementById('all-section');
             const  loadingSpinner =document.getElementById('spinner');
 
-            let currentIssue=0;             
+            let currentIssue=0;      
+            allCard.innerText =" ";
+
 
 /* loading spinner  */    
             if (currentIssue) {
                
-            loadingSpinner.classList.remove('hidden');                
+            loadingSpinner.classList.remove('hidden');        
             }
 
         
