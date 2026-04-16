@@ -1,11 +1,11 @@
+const loadingSpinner = document.getElementById('spinner');
+loadingSpinner.classList.remove('hidden'); 
 let defaultTab='all';
-
 let allData =[];
 let currentIssue= '0' ;
 /* active & inactive tabs style */
 const active = ['bg-[#4A00FF]', 'border-[#4A00FF]' ,'text-white'];
 const inactive = ['bg-white', 'border-[#E4E4E7]','text-[#64748B]'];
-
 
 function troggleFunc(tab) {
 
@@ -26,16 +26,22 @@ function troggleFunc(tab) {
                         }
 
 /* put fetch data in allData and */
-      view({data: allData},tab);
+if (allData.length > 0) {
+   
+   view({data: allData},tab);
+}
 }
 
-const fetchFunc = () => {
+const fetchFunc = () => { 
+        loadingSpinner.classList.remove('hidden');
         const fetc ='https://phi-lab-server.vercel.app/api/v1/lab/issues';
          fetch(fetc) 
          .then((res) => res.json())
          .then((data) => {
 
             allData=data.data;
+
+             troggleFunc(defaultTab);
              view(data,'all');
             });
 };
@@ -44,32 +50,27 @@ const fetchFunc = () => {
 
             const issueStatus =document.getElementById ("issue-status");
             const allCard = document.getElementById('all-section');
-            const  loadingSpinner =document.getElementById('spinner');
 
             let currentIssue=0;      
-            allCard.innerText =" ";
+            allCard.innerText ="";
 
 
-/* loading spinner  */    
-            if (currentIssue) {
-               
-            loadingSpinner.classList.remove('hidden');        
-            }
+
 
         
 
             values.data.forEach((value,modal) => {  
-                // console.log(value);
+
                 
 
 /* get all card section  */
            if (tabName==='all'|| value.status.toLowerCase()===tabName) {
-            
+ /* counting number when adding card and hide loading spinner */ 
+               currentIssue++; 
                 const divForCards = document.createElement("div");
 
 
-/* counting number when adding card and hide loading spinner */ 
-               currentIssue++;  
+ 
                
                
                 divForCards.innerHTML =`
@@ -169,34 +170,26 @@ const fetchFunc = () => {
                 allCard.append(divForCards)
                 } 
 
-                        /*issue issueStatus number count */
-
             });
 
   
-            issueStatus.innerText= currentIssue + ' Issues';
             loadingSpinner.classList.add('hidden');
-            if (currentIssue === 0) {
-               allCard.classList.remove('grid' ,'grid-cols-2','lg:grid-cols-3' ,'xl:grid-cols-4');
-              allCard.innerHTML = `<p class="text-center text-gray-500  py-10">No Issues Found</p>`;
-            }
-            else{
-                  allCard.classList.add('grid', 'grid-cols-2','lg:grid-cols-3','xl:grid-cols-4');
-            }
+            issueStatus.innerText= currentIssue + ' Issues';
             };
 
             
             fetchFunc();
-            troggleFunc(defaultTab);
 
 
+
+/* search functionality section */
 
             const searchBtn = document.getElementById('search-btn');
 
             document.getElementById('search-btn').addEventListener('click',()=>{
               const searchInput = document.getElementById('search-input');
               const searchValue = searchInput.value.trim().toLowerCase();
-              const loadingspinner = document.getElementById('spinner');
+
 
               
               
@@ -204,7 +197,7 @@ const fetchFunc = () => {
                  fetchFunc();
                  return;
                }
-            loadingspinner.classList.remove('hidden');
+            loadingSpinner.classList.remove('hidden');
 
               fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
               .then(result =>result.json())
@@ -213,13 +206,15 @@ const fetchFunc = () => {
                
                const filterWords=searchData.filter((word)=>word.title.toLowerCase().includes(searchValue));
               view({data: filterWords},'all');
-              loadingspinner.classList.add('hidden');
+              loadingSpinner.classList.add('hidden');
+
+              
             });
             
               
               
               
-            })
+            });
             
 
 
