@@ -18,6 +18,7 @@ function troggleFunc(tab) {
                         btnname.classList.remove(...inactive);
                         btnname.classList.add(...active);
                     }
+
                     else{
                               btnname.classList.add(...inactive);
                               btnname.classList.remove(...active);
@@ -26,11 +27,7 @@ function troggleFunc(tab) {
 
 /* put fetch data in allData and */
       view({data: allData},tab);
-
 }
-
-
-
 
 const fetchFunc = () => {
         const fetc ='https://phi-lab-server.vercel.app/api/v1/lab/issues';
@@ -73,6 +70,7 @@ const fetchFunc = () => {
 
 /* counting number when adding card and hide loading spinner */ 
                currentIssue++;  
+               
                
                 divForCards.innerHTML =`
          <div>  
@@ -178,9 +176,57 @@ const fetchFunc = () => {
   
             issueStatus.innerText= currentIssue + ' Issues';
             loadingSpinner.classList.add('hidden');
+            if (currentIssue === 0) {
+               allCard.classList.remove('grid' ,'grid-cols-2','lg:grid-cols-3' ,'xl:grid-cols-4');
+              allCard.innerHTML = `<p class="text-center text-gray-500  py-10">No Issues Found</p>`;
+            }
+            else{
+                  allCard.classList.add('grid', 'grid-cols-2','lg:grid-cols-3','xl:grid-cols-4');
+            }
             };
+
+            
             fetchFunc();
             troggleFunc(defaultTab);
+
+
+
+            const searchBtn = document.getElementById('search-btn');
+
+            document.getElementById('search-btn').addEventListener('click',()=>{
+              const searchInput = document.getElementById('search-input');
+              const searchValue = searchInput.value.trim().toLowerCase();
+              const loadingspinner = document.getElementById('spinner');
+
+              
+              
+              if (searchValue==="") {
+                 fetchFunc();
+                 return;
+               }
+            loadingspinner.classList.remove('hidden');
+
+              fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
+              .then(result =>result.json())
+              .then(data=>{
+               const searchData = data.data;
+               
+               const filterWords=searchData.filter((word)=>word.title.toLowerCase().includes(searchValue));
+              view({data: filterWords},'all');
+              loadingspinner.classList.add('hidden');
+            });
+            
+              
+              
+              
+            })
+            
+
+
+
+
+
+
 
 
 
